@@ -1,0 +1,31 @@
+<Solution>
+  <Folder Name="/API/">
+    <Project Path="API/PayFlow.Api/PayFlow.Api.csproj" />
+  </Folder>
+  <Folder Name="/App/">
+    <Project Path="App/PayFlow.Application/PayFlow.Application.csproj" />
+  </Folder>
+  <Folder Name="/Business/">
+    <Project Path="Business/PayFlow.CrossCutting.Config/PayFlow.CrossCutting.Config.csproj" />
+    <Project Path="Business/PayFlow.CrossCutting.IoC/PayFlow.CrossCutting.IoC.csproj" />
+    <Project Path="Business/PayFlow.CrossCutting.Log/PayFlow.CrossCutting.Log.csproj" />
+    <Project Path="Business/PayFlow.CrossCutting.Mapper/PayFlow.CrossCutting.Mapper.csproj" />
+    <Project Path="Business/PayFlow.CrossCutting.Messaging/PayFlow.CrossCutting.Messaging.csproj" />
+    <Project Path="Business/PayFlow.ExternalServices/PayFlow.ExternalServices.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Domain/PayFlow.Domain.Interface/PayFlow.Domain.Interface.csproj" />
+    <Project Path="Domain/PayFlow.Domain/PayFlow.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Repository/">
+    <Project Path="Repository/PayFlow.Repository/PayFlow.Repository.csproj" />
+  </Folder>
+  <Folder Name="/Test/">
+    <Project Path="Test/PayFlow.Api.IntegrationTests/PayFlow.Api.IntegrationTests.csproj" />
+    <Project Path="Test/PayFlow.Application.Tests/PayFlow.Application.Tests.csproj" />
+    <Project Path="Test/PayFlow.Domain.Tests/PayFlow.Domain.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Utility/">
+    <Project Path="Utility/PayFlow.Utility/PayFlow.Utility.csproj" />
+  </Folder>
+</Solution>

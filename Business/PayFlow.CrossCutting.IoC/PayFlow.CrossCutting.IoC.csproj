@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\App\PayFlow.Application\PayFlow.Application.csproj" />
+    <ProjectReference Include="..\..\Repository\PayFlow.Repository\PayFlow.Repository.csproj" />
+    <ProjectReference Include="..\PayFlow.CrossCutting.Config\PayFlow.CrossCutting.Config.csproj" />
+    <ProjectReference Include="..\PayFlow.CrossCutting.Log\PayFlow.CrossCutting.Log.csproj" />
+    <ProjectReference Include="..\PayFlow.CrossCutting.Mapper\PayFlow.CrossCutting.Mapper.csproj" />
+    <ProjectReference Include="..\PayFlow.CrossCutting.Messaging\PayFlow.CrossCutting.Messaging.csproj" />
+    <ProjectReference Include="..\PayFlow.ExternalServices\PayFlow.ExternalServices.csproj" />
+  </ItemGroup>
+
+</Project>

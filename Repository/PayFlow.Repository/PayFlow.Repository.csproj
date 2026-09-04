@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\PayFlow.Domain.Interface\PayFlow.Domain.Interface.csproj" />
+    <ProjectReference Include="..\..\Domain\PayFlow.Domain\PayFlow.Domain.csproj" />
+    <ProjectReference Include="..\..\Utility\PayFlow.Utility\PayFlow.Utility.csproj" />
+  </ItemGroup>
+
+</Project>
