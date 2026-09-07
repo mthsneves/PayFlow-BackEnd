@@ -1,14 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+using PayFlow.Application.Interfaces;
+using PayFlow.Application.Services;
+using PayFlow.Domain.Interface;
+using PayFlow.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+builder.Services.AddScoped<ICreateTransactionService,CreateTransactionService>();
+builder.Services.AddScoped<IGetTransactionService,GetTransactionService>();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -20,4 +30,21 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using(var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if (dbContext.Database.CanConnect())
+    {
+        dbContext.Database.Migrate();
+        Console.WriteLine("DataBase is online and accessible!");
+    }
+    else
+    {
+        Console.WriteLine("DataBase is offline or inaccessible!");
+    }
+        
+   
+
+    
+}
 app.Run();

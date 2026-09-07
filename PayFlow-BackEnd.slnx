@@ -20,6 +20,9 @@
   <Folder Name="/Repository/">
     <Project Path="Repository/PayFlow.Repository/PayFlow.Repository.csproj" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Folder Name="/Test/">
     <Project Path="Test/PayFlow.Api.IntegrationTests/PayFlow.Api.IntegrationTests.csproj" />
     <Project Path="Test/PayFlow.Application.Tests/PayFlow.Application.Tests.csproj" />
