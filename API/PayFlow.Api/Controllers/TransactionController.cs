@@ -37,8 +37,16 @@ public class TransactionController : ControllerBase
    [HttpGet("{id}")]
    public async Task<IActionResult> GetTransactionById(Guid id)
    {
-      var transactionId = await _getTransactionService.GetById(id);
-      return Ok(transactionId);
+      try
+      {
+         var transactionId = await _getTransactionService.GetById(id);
+         return Ok(transactionId);
+      }
+      catch (KeyNotFoundException ex)
+      {
+         return NotFound(ex.Message);
+      }
+      
    }
    
       
