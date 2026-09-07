@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: Admin
+      POSTGRES_PASSWORD: Manager
+      POSTGRES_DB: PayFlowDataBase
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+        - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/pgdata
+
+
+volumes:
+    pgdata:
+       
