@@ -18,7 +18,7 @@ public class GetTransactionService : IGetTransactionService
     {
         var transaction = await _repository.GetByIdAsync(id);
         if(transaction is null)
-            throw new Exception($"Transação com Id {id} não encontrado");
+            throw new KeyNotFoundException($"Transação com Id {id} não encontrado");
         
         return new TransactionResponseDto(transaction);
     }
