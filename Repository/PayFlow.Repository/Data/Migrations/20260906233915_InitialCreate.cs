@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PayFlow.Repository.Migrations
+namespace PayFlow.Repository.Data.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

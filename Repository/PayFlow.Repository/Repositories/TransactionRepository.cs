@@ -1,7 +1,7 @@
 ﻿using PayFlow.Domain.Entities;
 using PayFlow.Domain.Interface;
 
-namespace PayFlow.Repository;
+namespace PayFlow.Repository.Data.DataConfiguration;
 
 public class TransactionRepository : ITransactionRepository
 {

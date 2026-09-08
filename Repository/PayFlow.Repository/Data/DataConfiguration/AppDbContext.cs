@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PayFlow.Domain.Entities;
 
-namespace PayFlow.Repository;
+namespace PayFlow.Repository.Data.DataConfiguration;
 
 public class AppDbContext : DbContext
 {
@@ -11,4 +11,5 @@ public class AppDbContext : DbContext
 
     }
     public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<User> Users { get; set; }
 }

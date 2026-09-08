@@ -1,6 +1,6 @@
 ﻿namespace PayFlow.Domain.Enums;
 
-public enum User
+public enum UserRole
 {
     Administrator = 1,
     Customer = 2,
