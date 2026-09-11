@@ -1,37 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using PayFlow.Application.Interfaces;
-using PayFlow.Application.Services;
-using PayFlow.Domain.Interface;
+using PayFlow.CrossCutting.IoC;
 using PayFlow.Repository.Data.DataConfiguration;
-using PayFlow.Repository.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
-builder.Services.AddScoped<ICreateTransactionService, CreateTransactionService>();
-builder.Services.AddScoped<IGetTransactionService, GetTransactionService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ICreateUserService, CreateUserService>();
-
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddExceptionHandler<PayFlow.Api.Middlewares.GlobalExceptionHandlers>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
-
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
@@ -46,5 +24,19 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine("DataBase is offline or inaccessible!");
     }
 }
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
+}
+
+app.UseExceptionHandler();
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
 
 app.Run();

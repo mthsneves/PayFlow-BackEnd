@@ -24,7 +24,7 @@ public class TransactionController : ControllerBase
      try
      {
         var result = await _createTransactionService.CreateTransactionAsync(transactionRequestDto);
-        return Ok(result);
+        return StatusCode(201, result);
      }
      catch (ArgumentException ex)
      {
